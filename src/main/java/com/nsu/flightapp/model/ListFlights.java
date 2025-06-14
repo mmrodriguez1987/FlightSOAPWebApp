@@ -4,6 +4,7 @@ package com.nsu.flightapp.model;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 
 /**
@@ -24,6 +25,7 @@ import jakarta.xml.bind.annotation.XmlType;
  * 
  * 
  */
+@XmlRootElement(name = "listFlights")
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "listFlights")
 public class ListFlights {

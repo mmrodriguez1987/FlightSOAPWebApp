@@ -11,7 +11,7 @@ public class SoapClientConfig {
     @Bean
     public Jaxb2Marshaller marshaller() {
         Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
-        marshaller.setContextPath("com.nsu.flight.model");
+        marshaller.setContextPath("com.nsu.flightapp.model");
         return marshaller;
     }
 

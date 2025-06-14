@@ -24,14 +24,14 @@ public class FlightController {
     public String listFlights(Model model) {
         ListFlightsResponse response = flightClient.listFlights();
         model.addAttribute("flights", response.getFlights());
-        return "flights/list";
+        return "list";
     }
 
     @GetMapping("/{id}")
     public String getFlight(@PathVariable Long id, Model model) {
         GetFlightResponse response = flightClient.getFlight(id);
         model.addAttribute("flight", response.getFlight());
-        return "flights/detail";
+        return "redirect:/flights";
     }
 
     @PostMapping("/add")

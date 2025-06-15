@@ -29,12 +29,23 @@
     </scm>
     <properties>
         <java.version>21</java.version>
+        <javax.xml.accessExternalSchema>all</javax.xml.accessExternalSchema>
     </properties>
     <dependencies>
         <dependency>
             <groupId>com.sun.xml.ws</groupId>
             <artifactId>jaxws-rt</artifactId>
-            <version>2.2.10</version>
+            <version>4.0.3</version>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.xml.bind</groupId>
+            <artifactId>jakarta.xml.bind-api</artifactId>
+            <version>4.0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jaxb</groupId>
+            <artifactId>jaxb-runtime</artifactId>
+            <version>4.0.5</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -48,7 +59,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web-services</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>
@@ -60,7 +70,6 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
     <build>
         <plugins>
             <plugin>
@@ -78,8 +87,11 @@
                     <wsdlUrls>
                         <wsdlUrl>https://flight-soap-service-e6gvashufkh8cuhj.eastus-01.azurewebsites.net/FlightEndpointImpl?wsdl</wsdlUrl>
                     </wsdlUrls>
-                    <packageName>com.example.flight.soapclient</packageName>
+                    <packageName>com.example.flightapp.model</packageName>
                     <sourceDestDir>${project.build.directory}/generated-sources/wsimport</sourceDestDir>
+                    <vmArgs>
+                        <vmArg>-Djavax.xml.accessExternalSchema=all</vmArg>
+                    </vmArgs>
                 </configuration>
             </plugin>
             <plugin>

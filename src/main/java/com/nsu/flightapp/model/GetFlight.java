@@ -1,4 +1,3 @@
-
 package com.nsu.flightapp.model;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -26,6 +25,8 @@ import jakarta.xml.bind.annotation.XmlType;
  * 
  * 
  */
+
+@XmlRootElement(name = "getFlight")
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "getFlight", propOrder = {
     "id"

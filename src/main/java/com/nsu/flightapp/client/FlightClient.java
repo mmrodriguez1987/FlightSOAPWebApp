@@ -1,19 +1,30 @@
 package com.nsu.flightapp.client;
 
 import com.nsu.flightapp.model.*;
+import jakarta.xml.bind.JAXBElement;
 import org.springframework.ws.client.core.support.WebServiceGatewaySupport;
 
 public class FlightClient extends WebServiceGatewaySupport {
 
     public ListFlightsResponse listFlights() {
         ListFlights request = new ListFlights();
-        return (ListFlightsResponse) getWebServiceTemplate().marshalSendAndReceive(request);
+        Object response = getWebServiceTemplate().marshalSendAndReceive(request);
+        if (response instanceof JAXBElement) {
+            return (ListFlightsResponse) ((JAXBElement<?>) response).getValue();
+        }
+        return (ListFlightsResponse) response;
+
     }
 
     public GetFlightResponse getFlight(Long flightId) {
         GetFlight request = new GetFlight();
         request.setId(flightId);
-        return (GetFlightResponse) getWebServiceTemplate().marshalSendAndReceive(request);
+        Object response = getWebServiceTemplate().marshalSendAndReceive(request);
+        if (response instanceof JAXBElement) {
+            return (GetFlightResponse) ((JAXBElement<?>) response).getValue();
+        }
+        return (GetFlightResponse) response;
+
     }
 
     public CreateFlightResponse createFlight(Flight flight) {

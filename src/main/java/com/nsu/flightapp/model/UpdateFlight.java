@@ -26,7 +26,7 @@ import jakarta.xml.bind.annotation.XmlType;
  * 
  * 
  */
-@XmlRootElement(name = "updateFlightResponse")
+@XmlRootElement(name = "updateFlight")
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "updateFlight", propOrder = {
     "flight"

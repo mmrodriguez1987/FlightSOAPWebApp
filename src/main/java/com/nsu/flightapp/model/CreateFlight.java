@@ -31,6 +31,7 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlType(name = "createFlight", propOrder = {
     "flight"
 })
+@XmlRootElement(name = "createFlight")
 public class CreateFlight {
 
     protected Flight flight;
